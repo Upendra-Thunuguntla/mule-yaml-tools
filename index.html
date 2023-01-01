@@ -1,0 +1,169 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="robots" content="max-image-preview:large">
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+	<meta name="google-site-verification" content="BCjSwBqP4XS2yH1CVwXNsntcBvNIjNuhN8M8aGM670Q" />
+	<meta name="msvalidate.01" content="654C959A926C63EAED391D1C87EE6A47" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="RAML is used to design API specifications in Integration tools like Mulesoft. It takes time and efforts to convert a JSON structure to RAML specification, especially with large JSON payloads. This JSON to RAML converter saves a lot of your manual effort.">
+    <script id="rendered-js" src="yaml-tools-script.js"></script>
+	<title>YAML to Properties Converter</title>
+</head>
+<body onload="loadPage()">
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-dark bg-primary">
+	<a class="navbar-brand" href="/">YAML tools</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link " href="index.html" role="button">Home 🏠</a>
+			</li>
+            <!-- <li class="nav-item dropdown">
+				<a class="nav-link " href="#" role="button" onclick="comingSoon()" >Upload JSON ⬆ </a>
+			</li> -->
+            <li class="nav-item dropdown">
+				<a class="nav-link " href="FAQs.html" role="button" >FAQs 💡</a>
+			</li>
+        </ul>
+    </div>
+</nav>
+<div class="container my-5">
+<div id="app">
+	<div class="row my-7">
+		<div class="col-12">
+			<h1>YAML tools for Mule</h1>
+		</div>
+		<div class="col-md-9 col-sm-12">Transform your YAML to Properties or fetch keys to use them in the mule processors</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-md-6">
+			<label>Input File : </label>
+            <div class="custom-file">
+                <label class="custom-file-label" id="yamlFileInputLabel" for="inputFile1">Choose a yaml file...</label>
+                <input type="file" class="form-control custom-file-input" name="yamlFileInput" id="yamlFileInput"
+                    accept=".yaml,.yml" onchange='openFile(event)'>
+            </div>
+			<br>
+			<label for="input">(or) <br> Paste your YAML here : </label>
+            <textarea rows="10" class="form-control" id="yamlTextarea" placeholder="Add YAML Content"></textarea>
+            
+
+        
+            <div class="form-check" data-toggle="tooltip" data-placement="top"
+                title="If you choose this option you will get all keys without values">
+                <input class="form-check-input" type="checkbox" value="" id="keysOnly" onclick="checkCheckboxes('keysOnly')">
+                <label class="form-check-label" for="keysOnly">
+                    Get Keys only
+                    <svg height="16" width="16" viewBox="0 0 16 16">
+                        <path fill="#skin_color_information"
+                            d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM8.9 13h-2v-2h2v2zM11 8.1c-0.4 0.4-0.8 0.6-1.2 0.7-0.6 0.4-0.8 0.2-0.8 1.2h-2c0-2 1.2-2.6 2-3 0.3-0.1 0.5-0.2 0.7-0.4 0.1-0.1 0.3-0.3 0.1-0.7-0.2-0.5-0.8-1-1.7-1-1.4 0-1.6 1.2-1.7 1.5l-2-0.3c0.1-1.1 1-3.2 3.6-3.2 1.6 0 3 0.9 3.6 2.2 0.4 1.1 0.2 2.2-0.6 3z">
+                        </path>
+                    </svg>
+                </label>
+            </div>
+            
+            <div class="form-check" data-toggle="tooltip" data-placement="top"
+                title="If you choose this option all the keys will be enclosed in ${**key**}">
+                <input class="form-check-input" type="checkbox" value="" id="addGenericProp" onclick="checkCheckboxes('addGenericProp')" disabled>
+                <label class="form-check-label" for="addGenericProp">
+                    Enclose in ${**key**}
+                    <svg height="16" width="16" viewBox="0 0 16 16">
+                        <path fill="#skin_color_information"
+                            d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM8.9 13h-2v-2h2v2zM11 8.1c-0.4 0.4-0.8 0.6-1.2 0.7-0.6 0.4-0.8 0.2-0.8 1.2h-2c0-2 1.2-2.6 2-3 0.3-0.1 0.5-0.2 0.7-0.4 0.1-0.1 0.3-0.3 0.1-0.7-0.2-0.5-0.8-1-1.7-1-1.4 0-1.6 1.2-1.7 1.5l-2-0.3c0.1-1.1 1-3.2 3.6-3.2 1.6 0 3 0.9 3.6 2.2 0.4 1.1 0.2 2.2-0.6 3z">
+                        </path>
+                    </svg>
+                </label>
+            </div>
+
+            <div class="form-check" data-toggle="tooltip" data-placement="top"
+            title='If you choose this option all the keys will be enclosed in Mule::p("**key**")'>
+            <input class="form-check-input" type="checkbox" value="" id="addMuleProp" onclick="checkCheckboxes('addMuleProp')" disabled>
+            <label class="form-check-label" for="addMuleProp">
+                Enclose in Mule::p("**key**")
+                <svg height="16" width="16" viewBox="0 0 16 16">
+                    <path fill="#skin_color_information"
+                        d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM8.9 13h-2v-2h2v2zM11 8.1c-0.4 0.4-0.8 0.6-1.2 0.7-0.6 0.4-0.8 0.2-0.8 1.2h-2c0-2 1.2-2.6 2-3 0.3-0.1 0.5-0.2 0.7-0.4 0.1-0.1 0.3-0.3 0.1-0.7-0.2-0.5-0.8-1-1.7-1-1.4 0-1.6 1.2-1.7 1.5l-2-0.3c0.1-1.1 1-3.2 3.6-3.2 1.6 0 3 0.9 3.6 2.2 0.4 1.1 0.2 2.2-0.6 3z">
+                    </path>
+                </svg>
+            </label>
+        </div>
+			<!-- <button onclick="clearContents()" class="btn btn-light my-3"  >Clear 😣</button>
+            <button onclick="convert()" class="btn btn-success" >Convert 😁</button> -->
+            <button onclick="clearContents()" class="btn btn-light my-3" id="clearButton" >Clear</button>
+            <button onclick="convert()" class="btn btn-success" id="convertButton" >Convert</button>
+		</div>
+		<div class="col-md-6">
+			<label for="filterProp">Filter on elements: </label>
+			<input disabled id="filterProp" class="form-control" value="" onkeyup="filterOp(this)" placeholder="Start typing to use filter">
+<br>
+			<label for="propertiesOutput">Result</label>
+			<textarea  rows="11" class="form-control" readonly id="propertiesOutput" placeholder="Result will be shown here"></textarea>
+            <br>
+            <div class="input-group mb-3" id="propFileNameGroup" hidden="true" >
+                <input id="propFileName" class="form-control" value="" placeholder="Name for properties file">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">.properties</span>
+                </div>
+            </div>
+			<button onclick="copy()" class="copy btn btn-success my-3">Copy to clipboard</button>
+			<button onclick="downloadYaml()" class="btn btn-primary" id="downloadYaml">Download to properties file</button>
+		</div>
+	</div>
+
+
+</div>
+</div>
+
+<footer class="bg-dark py-5 small">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<label style="color: white ;"><strong>Useful Links:</strong></label>
+				<ul class="list-unstyled">
+						<li><a href="https://bit.ly/SimpleHikeCalc" target="_blank">💰 Salary Hike Calculator</a></li>
+						<li><a href="https://www.linkedin.com/in/muralid25" target="_blank" >🗽 My Linkedin</a></li>
+						<li><a href="https://github.com/Upendra-Thunuguntla" target="_blank" >👨‍💻 My Github</a></li>
+				</ul>
+			</div>
+			<div class="col-md-7">
+				<label style="color: white ; font-size: medium;" id="visits"><strong>Page Visits : </strong></label>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="yaml-min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script async src="https://api.countapi.xyz/hit/upendra-thunuguntla/raml-tools?callback=cb"></script>
+
+	<script>
+	function cb(response) {
+		document.getElementById('visits').innerHTML = "<strong>Page Visits : </strong>"+response.value;
+	}
+	$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+	</script>
+<style>
+	body{
+		
+		/* margin-top:20px; */
+		background-color: #f5f5ff;
+	}
+	</style>
+</body>
+</html>
