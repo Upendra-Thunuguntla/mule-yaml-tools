@@ -52,7 +52,7 @@ function convertPropertiesToYAML(properties) {
     const obj = {};
 
     lines.forEach((line) => {
-        const [key, value] = line.split('=');
+        const [key, value] = line.split(/=(.*)/s);
         const keys = key.split('.');
 
         let nestedObj = obj;
