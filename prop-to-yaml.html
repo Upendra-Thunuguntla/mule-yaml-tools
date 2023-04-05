@@ -1,0 +1,177 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script id="rendered-js" src="scripts/prop-yaml.js"></script>
+
+	<meta name="google-site-verification" content="BCjSwBqP4XS2yH1CVwXNsntcBvNIjNuhN8M8aGM670Q" />
+	<meta name="msvalidate.01" content="654C959A926C63EAED391D1C87EE6A47" />
+	<meta name="keywords" content="YAML, tools, Mulesoft, mule4, keys, YAML to properties converter, mule, yaml for mule, yaml to properties, yaml keys, yaml parse, mule properties">
+	<meta name="robots" content="index, follow, max-image-preview:large">
+	<meta name="googlebot" content="index, follow">
+
+	<!-- HTML Meta Tags -->
+	<title>YAML to Properties Converter | Mulesoft</title>
+	<meta name="description" content="One stop for required yaml operations in one page for mulesoft.">
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://upendra-thunuguntla.github.io/mule-yaml-tools/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="YAML to Properties Converter | Mulesoft">
+	<meta property="og:description" content="One stop for required yaml operations in one page for mulesoft.">
+	<meta property="og:image" content="https://raw.githubusercontent.com/Upendra-Thunuguntla/mule-yaml-tools/main/mule-yaml-tools-img.png">
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="upendra-thunuguntla.github.io">
+	<meta property="twitter:url" content="https://upendra-thunuguntla.github.io/mule-yaml-tools/">
+	<meta name="twitter:title" content="YAML to Properties Converter | Mulesoft">
+	<meta name="twitter:description" content="One stop for required yaml operations in one page for mulesoft.">
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/Upendra-Thunuguntla/mule-yaml-tools/main/mule-yaml-tools-img.png">
+			
+</head>
+<body onload="loadPage()">
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-dark bg-primary">
+	<a class="navbar-brand" href="index.html">YAML tools</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link " href="/" role="button">Home 🏠</a>
+			</li>
+            <li class="nav-item dropdown">
+				<a class="nav-link " href="index.html" role="button">YAML to Properties Converter 💻</a>
+			</li>
+            <!-- <li class="nav-item dropdown">
+				<a class="nav-link " href="FAQs.html" role="button" >FAQs 💡</a>
+			</li> -->
+        </ul>
+    </div>
+</nav>
+<div class="container my-5">
+<div id="app">
+	<div class="row my-7">
+		<div class="col-12">
+			<h1>Properties to YAML converter</h1>
+		</div>
+		<div class="col-md-9 col-sm-12">Transform your Properties to YAML</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-md-6">
+			<label>Input File : </label>
+            <div class="custom-file">
+                <label class="custom-file-label" id="propFileInputLabel" for="inputFile1">Choose a properties file...</label>
+                <input type="file" class="form-control custom-file-input" name="propFileInput" id="propFileInput"
+                    accept=".properties,.prop" onchange='openFile(event)'>
+            </div>
+			<br>
+			<label for="input">(or) <br> Paste your Properties file here : </label>
+            <textarea rows="10" class="form-control" id="propTextarea" placeholder="Add Properties Content"></textarea>
+
+            <div class="form-check" data-toggle="tooltip" data-placement="top"
+                title="If you choose this option you will get all keys without values">
+                <input class="form-check-input" type="checkbox" value="" id="keysOnly" onclick="checkCheckboxes('keysOnly')">
+                <label class="form-check-label" for="keysOnly">
+                    Get Keys only
+                    <svg height="16" width="16" viewBox="0 0 16 16">
+                        <path fill="#skin_color_information"
+                            d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM8.9 13h-2v-2h2v2zM11 8.1c-0.4 0.4-0.8 0.6-1.2 0.7-0.6 0.4-0.8 0.2-0.8 1.2h-2c0-2 1.2-2.6 2-3 0.3-0.1 0.5-0.2 0.7-0.4 0.1-0.1 0.3-0.3 0.1-0.7-0.2-0.5-0.8-1-1.7-1-1.4 0-1.6 1.2-1.7 1.5l-2-0.3c0.1-1.1 1-3.2 3.6-3.2 1.6 0 3 0.9 3.6 2.2 0.4 1.1 0.2 2.2-0.6 3z">
+                        </path>
+                    </svg>
+                </label>
+            </div>
+            
+            <div class="form-check" data-toggle="tooltip" data-placement="top"
+                title="If you choose this option all the keys will be enclosed in ${**key**}">
+                <input class="form-check-input" type="checkbox" value="" id="addGenericProp" onclick="checkCheckboxes('addGenericProp')" disabled>
+                <label class="form-check-label" for="addGenericProp">
+                    Enclose in ${**key**}
+                    <svg height="16" width="16" viewBox="0 0 16 16">
+                        <path fill="#skin_color_information"
+                            d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM8.9 13h-2v-2h2v2zM11 8.1c-0.4 0.4-0.8 0.6-1.2 0.7-0.6 0.4-0.8 0.2-0.8 1.2h-2c0-2 1.2-2.6 2-3 0.3-0.1 0.5-0.2 0.7-0.4 0.1-0.1 0.3-0.3 0.1-0.7-0.2-0.5-0.8-1-1.7-1-1.4 0-1.6 1.2-1.7 1.5l-2-0.3c0.1-1.1 1-3.2 3.6-3.2 1.6 0 3 0.9 3.6 2.2 0.4 1.1 0.2 2.2-0.6 3z">
+                        </path>
+                    </svg>
+                </label>
+            </div>
+
+            <div class="form-check" data-toggle="tooltip" data-placement="top"
+            title='If you choose this option all the keys will be enclosed in Mule::p("**key**")'>
+            <input class="form-check-input" type="checkbox" value="" id="addMuleProp" onclick="checkCheckboxes('addMuleProp')" disabled>
+            <label class="form-check-label" for="addMuleProp">
+                Enclose in Mule::p("**key**")
+                <svg height="16" width="16" viewBox="0 0 16 16">
+                    <path fill="#skin_color_information"
+                        d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM8.9 13h-2v-2h2v2zM11 8.1c-0.4 0.4-0.8 0.6-1.2 0.7-0.6 0.4-0.8 0.2-0.8 1.2h-2c0-2 1.2-2.6 2-3 0.3-0.1 0.5-0.2 0.7-0.4 0.1-0.1 0.3-0.3 0.1-0.7-0.2-0.5-0.8-1-1.7-1-1.4 0-1.6 1.2-1.7 1.5l-2-0.3c0.1-1.1 1-3.2 3.6-3.2 1.6 0 3 0.9 3.6 2.2 0.4 1.1 0.2 2.2-0.6 3z">
+                    </path>
+                </svg>
+            </label>
+        </div>
+            <button onclick="clearContents()" class="btn btn-light my-3" id="clearButton">Clear</button>
+			
+            <button data-toggle="tooltip" data-placement="top"
+            title='If you choose this option all the values will be replaced with empty strings. So, you can use that in another env' 
+			onclick="removePropValues()" class="btn btn-success" id="removeValuesButton">Remove Properties Values</button>
+
+			<button onclick="convert()" class="btn btn-success" id="convertButton">Convert</button>
+			
+		</div>
+		<div class="col-md-6">
+			<label for="filterProp">Filter on elements: </label>
+			<input disabled id="filterProp" class="form-control" value="" onkeyup="filterOp(this)" placeholder="Start typing to use filter">
+<br>
+			<label for="YAMLOutput">Result</label>
+			<textarea  rows="11" class="form-control" readonly id="YAMLOutput" placeholder="Result will be shown here"></textarea>
+            <br>
+            <div class="input-group mb-3" id="YAMLFileNameGroup" hidden="true" >
+                <input id="YAMLFileName" class="form-control" value="" placeholder="Name for YAML file">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">.yaml</span>
+                </div>
+            </div>
+			<button onclick="copy()" class="copy btn btn-success my-3">Copy to clipboard</button>
+			<button onclick="downloadYAML()" class="btn btn-primary" id="downloadYAML">Download to YAML file</button>
+		</div>
+	</div>
+</div>
+</div>
+<div class="col-md-7">
+	<label style="color: black ; font-size: medium;" id="visits"><strong>Page Visits : </strong></label>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="scripts/js-yaml-min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- <script async src="https://api.countapi.xyz/hit/upendra-thunuguntla/raml-tools?callback=cb"></script> -->
+
+	<script>
+	function cb(response) {
+		document.getElementById('visits').innerHTML = "<strong>Page Visits : </strong>"+response.value;
+	}
+	$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+	</script>
+<style>
+	body{
+		
+		/* margin-top:20px; */
+		background-color: #f5f5ff;
+	}
+	</style>
+</body>
+</html>
