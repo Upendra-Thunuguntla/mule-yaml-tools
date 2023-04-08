@@ -21,15 +21,26 @@ function convertYamlToProperties(yamlData, keysOnly) {
                         processObject(value, `${prefix}${k}.`);
                     } else {
                         if (keysOnly) {
-                            properties += `${keyPrefix}${prefix}${k}${keySuffix}\n`;
+                            console.log(value);
+                            if (value.startsWith('![')) {
+                                properties += `${keyPrefix}secure::${prefix}${k}${keySuffix}\n`;
+                            }else{
+                                properties += `${keyPrefix}${prefix}${k}${keySuffix}\n`;
+                            }
                         } else {
                             properties += `${prefix}${k}=${value}\n`;
                         }
                     }
                 }
             } else {
+                //This Else block is for First key-value pair in the input.
                 if (keysOnly) {
-                    properties += keyPrefix + prefix.slice(0, -1) + keySuffix + `\n`;
+                    if (obj.startsWith('![')) {
+                        properties += `${keyPrefix}secure::${prefix.slice(0, -1)}${keySuffix}\n`;
+                    }else{
+                        properties += `${keyPrefix}${prefix}${keySuffix}\n`;
+                    }
+                    // properties += keyPrefix + prefix.slice(0, -1) + keySuffix + `\n`;
                 } else {
                     properties += prefix.slice(0, -1) + `=${obj}\n`;
                 }
