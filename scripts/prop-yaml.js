@@ -29,7 +29,11 @@ function getPropKeysOnly(properties) {
 
     lines.forEach((line) => {
         const [key, value] = line.split('=');
-        newLines.push(keyPrefix + `${key}` + keySuffix);
+        if (value.startsWith('![')) {
+            newLines.push(keyPrefix + `secure::${key}` + keySuffix);
+        } else {
+            newLines.push(keyPrefix + `${key}` + keySuffix);
+        }
     });
     return newLines.join('\n');
 }
