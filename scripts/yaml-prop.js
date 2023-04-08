@@ -38,7 +38,7 @@ function convertYamlToProperties(yamlData, keysOnly) {
                     if (obj.startsWith('![')) {
                         properties += `${keyPrefix}secure::${prefix.slice(0, -1)}${keySuffix}\n`;
                     }else{
-                        properties += `${keyPrefix}${prefix}${keySuffix}\n`;
+                        properties += `${keyPrefix}${prefix.slice(0, -1)}${keySuffix}\n`;
                     }
                     // properties += keyPrefix + prefix.slice(0, -1) + keySuffix + `\n`;
                 } else {
