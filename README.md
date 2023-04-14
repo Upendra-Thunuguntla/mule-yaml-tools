@@ -1,7 +1,7 @@
-![![YAML Tools](https://miro.medium.com/v2/resize:fit:720/format:webp/0*VNyidRqsr60sdIKi.png)](https://upendra-thunuguntla.github.io/mule-yaml-tools/)
+[![YAML Tools](https://miro.medium.com/v2/resize:fit:720/format:webp/0*VNyidRqsr60sdIKi.png)](https://upendra-thunuguntla.github.io/mule-yaml-tools/)
 
 
-Web app Link : https://upendra-thunuguntla.github.io/mule-yaml-tools/
+🌏 Web app Link : https://upendra-thunuguntla.github.io/mule-yaml-tools/
 
 I created this tool with intention to help myself as well as fellow developers and community. So, let’s dig into it and see what it can do and how it can help you in day to day development as Mulesoft developer.
 
