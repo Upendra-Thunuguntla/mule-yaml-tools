@@ -1,11 +1,21 @@
 [![YAML Tools](https://miro.medium.com/v2/resize:fit:720/format:webp/0*VNyidRqsr60sdIKi.png)](https://upendra-thunuguntla.github.io/mule-yaml-tools/)
 
 
-🌏 Web app Link : https://upendra-thunuguntla.github.io/mule-yaml-tools/
-
+## Why ?
 I created this tool with intention to help myself as well as fellow developers and community. So, let’s dig into it and see what it can do and how it can help you in day to day development as Mulesoft developer.
 
-There are 2 options in this web application:
+
+## Usage
+
+You can access the Web Application directly here: 🌏 Web app Link : https://upendra-thunuguntla.github.io/mule-yaml-tools/
+
+
+or Run on Docker:
+
+[![](https://cdn.icon-icons.com/icons2/2530/PNG/128/docker_button_icon_151885.png)](https://hub.docker.com/r/upendrathunuguntla/yaml-tools)
+
+
+There are 2 options in this application:
 
 1️⃣ YAML to Properties Converter
 
