@@ -1,3 +1,6 @@
+[![Docker Build and Push](https://github.com/Upendra-Thunuguntla/mule-yaml-tools/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Upendra-Thunuguntla/mule-yaml-tools/actions/workflows/docker-image.yml)
+[![Deploy static content to Pages](https://github.com/Upendra-Thunuguntla/mule-yaml-tools/actions/workflows/static.yml/badge.svg)](https://github.com/Upendra-Thunuguntla/mule-yaml-tools/actions/workflows/static.yml)
+
 [![YAML Tools](https://miro.medium.com/v2/resize:fit:720/format:webp/0*VNyidRqsr60sdIKi.png)](https://upendra-thunuguntla.github.io/mule-yaml-tools/)
 
 
