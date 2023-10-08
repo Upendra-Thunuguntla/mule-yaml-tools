@@ -140,6 +140,7 @@
 							</svg>
 						</label>
 					</div>
+					<button onclick="loadExample()" class="btn btn-info my-3" id="exampleButton">Load Example</button>
 					<button onclick="clearContents()" class="btn btn-light my-3" id="clearButton">Clear</button>
 
 					<button data-toggle="tooltip" data-placement="top"
@@ -180,9 +181,7 @@
         <a href="https://www.linkedin.com/in/upendra-thunuguntla/">LinkedIn</a> |  
         <a href="https://github.com/Upendra-Thunuguntla/mule-yaml-tools">Github Repo</a>
     </footer>
-	<!-- <div class="col-md-7">
-		<label style="color: black ; font-size: medium;" id="visits"><strong>Page Visits : </strong></label>
-	</div> -->
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -196,17 +195,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-	<!-- <script async src="https://api.countapi.xyz/hit/upendra-thunuguntla/raml-tools?callback=cb"></script> -->
 	<script src="https://kit.fontawesome.com/4d12237a8a.js" crossorigin="anonymous"></script>
 
-	<script>
-		function cb(response) {
-			document.getElementById('visits').innerHTML = "<strong>Page Visits : </strong>" + response.value;
-		}
-		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-		})
-	</script>
 	<style>
 		body {
 

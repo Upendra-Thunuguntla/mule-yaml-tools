@@ -3,6 +3,11 @@ var keySuffix = "";
 
 var globalOp = "";
 
+function loadExample(){
+    document.getElementById("yamlTextarea").value= "string: Hello, World!\r\nnumber: 42\r\nboolean: true\r\narray:\r\n  - 1\r\n  - 2\r\n  - 3\r\nobject:\r\n  property: value\r\n  nestedObject:\r\n    nestedProperty: nestedValue\r\n";
+    gtag('event', 'load example', {});
+}
+
 // Function to convert YAML data to properties format
 function convertYamlToProperties(yamlData, keysOnly) {
     // Parse YAML data
@@ -61,7 +66,6 @@ function addCommentsAndLines(yaml, properties) {
         if (line.startsWith("#") || line.trim() === "") {
             properties.insert(i, line);
         }
-
     }
     return properties.join("\n");
 }
@@ -105,7 +109,6 @@ function removeYamlValues() {
 }
 
 function processYamlObject(obj) {
-
     for (const k of Object.keys(obj)) {
         const value = obj[k];
         console.log(obj[k]);
@@ -124,7 +127,6 @@ function processYamlObject(obj) {
 //Function for removing values from YAML input File
 function ProcessRemoveYamlValues(yamlData) {
     const obj = jsyaml.load(yamlData);
-
     // Iterate through all properties and replace values with empty strings
     for (const prop in obj) {
         // if (obj[prop].)
@@ -180,6 +182,7 @@ var openFile = function (event) {
         node.value = text;
     };
     reader.readAsText(input.files[0]);
+    gtag('event', 'file uploaded', {});
 };
 
 function filterOp(filterInput) {
@@ -206,6 +209,7 @@ function copy() {
         let textarea = document.getElementById("propertiesOutput");
         textarea.select();
         document.execCommand("copy");
+        gtag('event', 'Props Op Copied', {});
     }
 }
 
@@ -218,6 +222,7 @@ function clearContents() {
     document.getElementById("propertiesOutput").style.color = "black";
     document.getElementById("downloadProp").disabled = false;
     document.getElementById("filterProp").disabled = true;
+    gtag('event', 'Contents Cleared', {});
 }
 
 function downloadProp() {
@@ -234,6 +239,7 @@ function downloadProp() {
         document.body.appendChild(element);
         element.click();
         document.body.removeChild(element);
+        gtag('event', 'Content Downloaded', {});
     } else {
         if (propertiesOutput.value != "" && propFileName.value == "") {
             alert("Please enter file name");
@@ -253,13 +259,16 @@ function checkCheckboxes(data) {
             addMuleProp.checked = false;
             addGenericProp.checked = false;
         }
+        gtag('event', 'selected keys only option', {});
     }
 
     else if (data == "addGenericProp") {
         addMuleProp.checked = false;
+        gtag('event', 'selected generic prop options', {});
     }
     else if (data == "addMuleProp") {
         addGenericProp.checked = false;
+        gtag('event', 'selected mule prop option', {});
     }
 }
 
