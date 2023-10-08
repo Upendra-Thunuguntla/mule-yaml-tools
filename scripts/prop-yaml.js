@@ -3,6 +3,12 @@ var keySuffix = "";
 
 var globalOp = "";
 
+
+function loadExample(){
+    document.getElementById("propTextarea").value= "string=Hello, World!\r\nnumber=42\r\nboolean=true\r\narray.0=1\r\narray.1=2\r\narray.2=3\r\nobject.property=value\r\nobject.nestedObject.nestedProperty=nestedValue";
+    gtag('event', 'load example', {});
+}
+
 function processRemovePropValues(properties) {
     const lines = properties.split('\n');
     const newLines = [];
@@ -39,6 +45,7 @@ function getPropKeysOnly(properties) {
 }
 
 function filterOp(filterInput) {
+
     query = filterInput.value;
     if (query == "") {
         document.getElementById("YAMLOutput").value = globalOp;
@@ -104,6 +111,7 @@ function convert() {
             // op = addCommentsAndLines(propTextarea.value.trim(),op.toString());
             document.getElementById("YAMLOutput").value = op.toString();
             globalOp = op.toString();
+            gtag('event', 'Convert', {});
         } catch (error) {
             document.getElementById("YAMLOutput").style.color = "red";
             document.getElementById("YAMLOutput").value = error.toString();
@@ -122,6 +130,7 @@ function removePropValues() {
     try {
         op = processRemovePropValues(propTextarea.value.trim());
         document.getElementById("YAMLOutput").value = op.toString();
+        gtag('event', 'remove properties', {});
     } catch (error) {
         document.getElementById("YAMLOutput").style.color = "red";
         document.getElementById("YAMLOutput").value = error.toString();
@@ -139,6 +148,7 @@ var openFile = function (event) {
         node.value = text;
     };
     reader.readAsText(input.files[0]);
+    gtag('event', 'file uploaded', {});
 };
 
 // Non Functional requirements 
@@ -156,13 +166,16 @@ function checkCheckboxes(data) {
             addMuleProp.checked = false;
             addGenericProp.checked = false;
         }
+        gtag('event', 'selected keys only option', {});
     }
 
     else if (data == "addGenericProp") {
         addMuleProp.checked = false;
+        gtag('event', 'selected generic prop options', {});
     }
     else if (data == "addMuleProp") {
         addGenericProp.checked = false;
+        gtag('event', 'selected mule prop option', {});
     }
 }
 
@@ -171,6 +184,7 @@ function copy() {
         let textarea = document.getElementById("YAMLOutput");
         textarea.select();
         document.execCommand("copy");
+        gtag('event', 'YAML Op Copied', {});
     }
 }
 
@@ -183,6 +197,7 @@ function clearContents() {
     document.getElementById("YAMLOutput").style.color = "black";
     document.getElementById("downloadYAML").disabled = false;
     document.getElementById("propTextarea").focus();
+    gtag('event', 'Contents Cleared', {});
 }
 
 function downloadYAML() {
@@ -199,6 +214,7 @@ function downloadYAML() {
         document.body.appendChild(element);
         element.click();
         document.body.removeChild(element);
+        gtag('event', 'Content Downloaded', {});
     } else {
         if (YAMLOutput.value != "" && YAMLFileName.value == "") {
             alert("Please enter file name");
