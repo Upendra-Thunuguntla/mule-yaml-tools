@@ -45,12 +45,13 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQ0JYCN3RS"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
 
-  gtag('config', 'G-QQ0JYCN3RS');
+	gtag('config', 'G-QQ0JYCN3RS');
 </script>
+
 <body onload="loadPage()">
 	<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-dark bg-primary">
 		<a class="navbar-brand" href="index.html">YAML tools</a>
@@ -69,7 +70,7 @@
 				<!-- <li class="nav-item dropdown">
 				<a class="nav-link " href="FAQs.html" role="button" >FAQs 💡</a>
 			</li> -->
-			
+
 			</ul>
 		</div>
 	</nav>
@@ -175,12 +176,12 @@
 
 		</div>
 	</div>
-	    <footer style="position: absolute; bottom: 5; width: 100%; text-align: center;"> 
-        Designed & Developed by 
-        <a href="mailto:muralidhar.thunuguntla@gmail.com">Upendra Thunuguntla ❤️</a> | 
-        <a href="https://www.linkedin.com/in/upendra-thunuguntla/">LinkedIn</a> |  
-        <a href="https://github.com/Upendra-Thunuguntla/mule-yaml-tools">Github Repo</a>
-    </footer>
+	<footer style="position: absolute; bottom: 5; width: 100%; text-align: center;">
+		Designed & Developed by
+		<a href="mailto:muralidhar.thunuguntla@gmail.com">Upendra Thunuguntla ❤️</a> |
+		<a href="https://www.linkedin.com/in/upendra-thunuguntla/">LinkedIn</a> |
+		<a href="https://github.com/Upendra-Thunuguntla/mule-yaml-tools">Github Repo</a>
+	</footer>
 
 
 	<!-- Optional JavaScript -->
@@ -204,7 +205,98 @@
 			background-color: #f5f5ff;
 		}
 	</style>
-	
+
+	<style>
+		.redirect-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.85);
+			z-index: 99999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			backdrop-filter: blur(4px);
+		}
+
+		.redirect-modal {
+			background: white;
+			padding: 32px;
+			border-radius: 12px;
+			max-width: 450px;
+			text-align: center;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+			margin: 20px;
+		}
+
+		.redirect-modal h3 {
+			margin-top: 0;
+			color: #1e293b;
+			font-size: 24px;
+			margin-bottom: 16px;
+			font-weight: 700;
+		}
+
+		.redirect-modal p {
+			color: #475569;
+			margin-bottom: 24px;
+			line-height: 1.6;
+			font-size: 16px;
+		}
+
+		.redirect-btn {
+			display: inline-block;
+			padding: 12px 24px;
+			margin: 8px;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 600;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+			transition: all 0.2s ease;
+		}
+
+		.redirect-btn-primary {
+			background: #3b82f6;
+			color: white;
+			box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
+		}
+
+		.redirect-btn-primary:hover {
+			background: #2563eb;
+			color: white;
+			text-decoration: none;
+			transform: translateY(-1px);
+		}
+
+		.redirect-btn-secondary {
+			background: #f1f5f9;
+			color: #475569;
+		}
+
+		.redirect-btn-secondary:hover {
+			background: #e2e8f0;
+			color: #475569;
+			text-decoration: none;
+		}
+	</style>
+	<div class="redirect-overlay" id="redirectOverlay">
+		<div class="redirect-modal">
+			<h3>We've Moved! 🚀</h3>
+			<p>This tool is now part of the new <strong>Unified Developer Tools</strong> platform, featuring a better
+				UI, dark mode, and even more tools.</p>
+			<div>
+				<a href="https://upendra-thunuguntla.github.io/tools/yaml-tools/"
+					class="redirect-btn redirect-btn-primary">Take me there</a>
+				<button onclick="document.getElementById('redirectOverlay').style.display='none'"
+					class="redirect-btn redirect-btn-secondary">Stay here</button>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
